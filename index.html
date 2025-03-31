@@ -82,7 +82,7 @@
         }
 
         .checklist-box li {
-            background: rgb(255, 144, 172); /* Soft pastel pink */
+            background: rgba(255, 135, 166, 0.62); /* Soft pastel pink */
             padding: 10px;
             margin: 5px 0;
             border-radius: 5px;
@@ -106,7 +106,7 @@
         }
 
         .checked-label {
-            color: rgb(255, 20, 147);
+            color: rgb(255, 0, 138);
             text-decoration: underline;
         }
 
@@ -114,10 +114,10 @@
             width: 90%; /* Adjust search bar width */
             padding: 8px; /* Reduced padding */
             font-size: 14px; /* Slightly smaller text */
-            background-color: pink; /* Pink background */
-            color: hotpink; /* Pink text color */
+            background-color: #ffffff; /* Pink background */
+            color: #ff71b8; /* Pink text color */
             text-shadow: 2px 2px 5px rgba(255, 105, 180, 0.7); /* Text shadow effect */
-            border: 1px solid hotpink; /* Optional: hot pink border for extra effect */
+            border: 3px solid rgba(245, 156, 200, 0.88); /* Optional: hot pink border for extra effect */
             border-radius: 5px; /* Rounded corners for a nice look */
             font-family: 'Press Start 2P', cursive; /* Pixel font */
             letter-spacing: 2px; /* Optional: adds more space between letters for pixel look */
@@ -302,7 +302,7 @@ button {
     max-width: 200px;
     display: none;
 }
-        
+
     </style>
 </head>
 <body>
@@ -349,11 +349,23 @@ button {
         <button onclick="addNewAnime()">Submit</button>
     </div>
 </div>
+    
+    <!-- Modal Structure with Close Button -->
+    <div id="animeModal" style="display: none;">
+        <div>
+            <label for="animeName">Anime Name:</label>
+            <input type="text" id="animeName" required><br>
+            <label for="animeImage">Anime Image:</label>
+            <input type="file" id="animeImage" required><br>
+            <button onclick="addNewAnime()">Add Anime</button>
+            <button class="close-btn" onclick="closeModalButton()">Close</button> <!-- Close button for the modal -->
+        </div>
+    </div>
 
 
 
     <script>
-        // Load anime from localStorage and display it
+      // Load anime from localStorage and display it
         document.addEventListener("DOMContentLoaded", function() {
             let storedAnimes = JSON.parse(localStorage.getItem("animeList")) || [];
 
