@@ -307,10 +307,11 @@ button {
 </head>
 <body>
     <div class="content" id="mainBox">
+        
+<audio id="backgroundMusic" src="bgmusic.mp3" loop></audio>
         <h1>Anime List</h1>
         <button onclick="openChecklist()">Open</button>
     </div>
-
     <audio id="clickSound" src="mouse-click-153941.mp3"></audio>
 
     <div class="checklist-box" id="checklistBox">
@@ -523,6 +524,64 @@ function previewImage() {
             document.getElementById("checklistBox").style.display = "block";
             document.getElementById("mainBox").style.display = "none";
         }
+        
+        
+  document.addEventListener("DOMContentLoaded", function () {
+            let audio = document.getElementById("backgroundMusic");
+
+            // Try to play automatically
+            let playPromise = audio.play();
+
+            if (playPromise !== undefined) {
+                playPromise.catch(() => {
+                    // If autoplay is blocked, wait for user interaction
+                    document.addEventListener("click", () => audio.play(), { once: true });
+                });
+            }
+        });
+        
+        document.addEventListener("DOMContentLoaded", function () {
+    // Get the click sound audio element
+    const clickSound = document.getElementById("clickSound");
+
+    // Get all buttons, search bar, and checkboxes
+    const buttons = document.querySelectorAll('button');
+    const searchBar = document.getElementById('searchBar');
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+    // Add event listener to each button to play sound on click
+    buttons.forEach(button => {
+        button.addEventListener('click', function () {
+            clickSound.play(); // Play the click sound
+        });
+    });
+
+    // Add event listener to search bar to play sound when clicked
+    searchBar.addEventListener('click', function () {
+        clickSound.play(); // Play the click sound
+    });
+
+    // Add event listener to checkboxes to play sound when checked/unchecked
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function () {
+            clickSound.play(); // Play the click sound when the checkbox state changes
+        });
+    });
+
+    // Additional code to handle background music autoplay
+    let audio = document.getElementById("backgroundMusic");
+
+    // Try to play automatically
+    let playPromise = audio.play();
+
+    if (playPromise !== undefined) {
+        playPromise.catch(() => {
+            // If autoplay is blocked, wait for user interaction
+            document.addEventListener("click", () => audio.play(), { once: true });
+        });
+    }
+});
+
     </script>
 </body>
 </html>
