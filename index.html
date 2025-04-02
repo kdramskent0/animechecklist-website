@@ -13,575 +13,384 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            color: white;
+            color: #ffffff;
             font-family: 'Press Start 2P', cursive;
             text-align: center;
             background: url('https://i.pinimg.com/originals/df/ed/26/dfed26e4619107663b5a45d0c8a7da3d.gif') no-repeat center center/cover;
-            text-shadow: 2px 2px 5px rgba(255, 105, 180, 0.7); /* Soft pink shadow for all text */
+            text-shadow: 2px 2px 5px rgba(255, 0, 128, 0.7);
         }
 
-        /* Mobile-specific styles */
+        /* Media query for mobile devices */
         @media (max-width: 768px) {
             body {
                 background: url('https://i.pinimg.com/736x/02/f5/3b/02f53bb6ab5729d00842305aa5af7ca1.jpg') no-repeat center center/cover;
             }
         }
 
-        h1, span, label, input, button {
-            text-shadow: 2px 2px 5px rgba(255, 105, 180, 0.7); /* Soft pink shadow for all text */
-        }
-
-        .content, .checklist-box {
-            background: rgba(255, 176, 191, 0.8); /* Light Pink Background */
-            padding: 20px;
+        .login-box {
+            background: rgba(255, 176, 191, 0.8);
+            padding: 30px;
             border-radius: 10px;
-            display: none;
-            width: 50px;
-            height: 210px;
-            box-shadow: 0 4px 8px rgba(255, 0, 128, 0.5); /* Soft pink shadow for boxes */
-        }
-
-        .content {
-            display: block;
             width: 250px;
-            height: 155px;
+            box-shadow: 0 4px 8px rgba(255, 0, 128, 0.5);
         }
 
-        button {
-            margin-top: 10px;
-            padding: 10px 20px;
+        .login-box input {
+            padding: 10px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            width: 90%;
+        }
+
+        .login-box button {
+            padding: 10px;
             font-size: 16px;
             border: none;
             cursor: pointer;
-            background: rgb(255, 230, 234); /* Light pink */
-            color: rgb(255, 97, 176); /* Hot pink text */
+            background: rgb(255, 230, 234);
+            color: rgb(255, 97, 176);
             border-radius: 5px;
             font-family: 'Press Start 2P', cursive;
-            box-shadow: 0 4px 8px rgba(215, 0, 108, 0.5); /* Soft pink shadow for button */
+            box-shadow: 0 4px 8px rgba(215, 0, 108, 0.5);
         }
 
-        button:hover {
-            background: rgb(249, 104, 141); /* Slightly darker pink */
-            box-shadow: 0 6px 12px rgba(255, 2, 128, 0.7); /* Darker shadow on hover */
+        .login-box button:hover {
+            background: rgb(249, 104, 141);
+            box-shadow: 0 6px 12px rgba(255, 2, 128, 0.7);
         }
 
         .checklist-box {
-            background: rgba(255, 196, 206, 0.85);
-            padding: 15px;
+            display: none; /* Hide checklist initially */
+            background: rgba(255, 176, 191, 0.8);
+            padding: 20px;
             border-radius: 10px;
-            text-align: left;
-            width: 89%;
-            max-height: 500px;
-            overflow: auto; /* Scrollable */
+            width: 80%;
+            box-shadow: 0 4px 8px rgba(255, 0, 128, 0.5);
+            max-height: 80vh;
+            overflow-y: auto;
         }
 
-        .checklist-box ul {
-            list-style: none;
-            padding: 0;
-            margin-bottom: 10px; /* To provide space for the scrollbar */
-        }
-
-        .checklist-box li {
-            background: rgba(255, 135, 166, 0.62); /* Soft pastel pink */
-            padding: 10px;
-            margin: 5px 0;
-            border-radius: 5px;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            width: 95%;
-        }
-
-        .checklist-box img {
-            width: 70px;
-            height: 75px;
-            border-radius: 5px;
-        }
-
-        .checklist-box input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
-            cursor: pointer;
-        }
-
-        .checked-label {
-            color: rgb(255, 0, 138);
-            text-decoration: underline;
+        .checklist-box h1 {
+            font-size: 24px;
         }
 
         .search-bar {
-            width: 90%; /* Adjust search bar width */
-            padding: 8px; /* Reduced padding */
-            font-size: 14px; /* Slightly smaller text */
-            background-color: #ffffff; /* Pink background */
-            color: #ff71b8; /* Pink text color */
-            text-shadow: 2px 2px 5px rgba(255, 105, 180, 0.7); /* Text shadow effect */
-            border: 3px solid rgba(245, 156, 200, 0.88); /* Optional: hot pink border for extra effect */
-            border-radius: 5px; /* Rounded corners for a nice look */
-            font-family: 'Press Start 2P', cursive; /* Pixel font */
-            letter-spacing: 2px; /* Optional: adds more space between letters for pixel look */
-        }
-
-        .add-button {
-            background-color: rgba(255, 105, 180, 0.7); /* Pink button */
-            color: white;
+            padding: 10px;
+            margin-bottom: 20px;
+            width: 95%;
+            font-size: 19px;
             border-radius: 5px;
-            font-size: 18px;
-            padding: 10px 15px;
-            cursor: pointer;
-            border: none;
-            margin-top: 10px;
-            display: block;
+            box-shadow: 0 4px 8px rgba(85, 15, 50, 0.6);
+            border: 4px solid rgba(255, 97, 176, 0.61);
+        }
+
+        .checklist-items {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .anime-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
             width: 100%;
-            box-shadow: 0 4px 8px rgba(255, 2, 128, 0.5);
+            justify-content: flex-start;
+            padding: 4px;
+            background-color: rgba(255, 0, 128, 0.27); /* Red box behind checkbox, image, and name */
+            box-shadow: 0 4px 8px rgba(90, 0, 45, 0.53);
+            border-radius: 5px;
         }
 
-        .add-button:hover {
-            background-color: rgba(255, 0, 128, 0.5); /* Darker pink on hover */
+        .anime-checkbox {
+            margin-right: 10px;
         }
 
-        /* Modal styles */
+        .anime-image {
+            height: 70px;
+            width: 50px;
+            margin-right: 15px;
+            border-radius: 5px;
+        }
+
+        .anime-name {
+            font-size: 18px;
+            text-align: left; /* Aligns the name to the left */
+            flex: 1; /* Allows the name to take up remaining space and stay on the left */
+            padding: 5px;
+            transition: color 0.3s; /* Smooth transition when the name turns blue */
+        }
+
+        .anime-name.checked {
+            color: rgb(243, 0, 151); /* Turn name blue when checkbox is clicked */
+        }
+
+        .checklist-box button {
+            padding: 10px;
+            background: rgba(249, 104, 141, 0.68);
+            color: rgb(255, 255, 255);
+            border-radius: 5px;
+            font-family: 'Press Start 2P', cursive;
+            border: none;
+            cursor: pointer;
+        }
+
+        .checklist-box button:hover {
+            background: rgba(255, 62, 111, 0.85);
+            box-shadow: 0 6px 12px rgba(255, 2, 128, 0.7);
+        }
+
+        /* Modal Styles */
         .modal {
-    display: none; /* Hidden by default */
-    position: fixed;
-    z-index: 2; /* Make sure the modal is on top of the checklist box */
-    left: 50%;
-    top: 75%;
-    transform: translate(-50%, -50%); /* Center the modal */
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(30, 29, 29, 0); /* Black with opacity */
-}
-
-/* Center modal content */
-.modal-content {
-    background-color: pink;
-    padding: 20px;
-    border: 1px solid rgba(255, 105, 180, 0.7);
-    width: 50%; /* You can adjust the width as needed */
-    max-width: 600px; /* Optional: set a maximum width */
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center content horizontally */
-    justify-content: center; /* Center content vertically */
-}
-
-/* Optional: Style for the modal button */
-button {
-    background-color: rgba(255, 105, 180, 0.7); /* Pink button */
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    display: inline-block;
-    text-align: center;
-    margin-top: 10px;
-    font-family: 'Press Start 2P', cursive;
-    text-shadow: 2px 2px 5px rgba(255, 105, 180, 0.7);
-}
-
-/* Make sure the image preview is also centered */
-#imagePreview {
-    text-align: center;
-}
-
-#previewImg {
-    max-width: 200px;
-    display: none;
-}
-       
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 92%;
+            left: 2px;
+            overflow: auto;
+            box-shadow: 0 6px 12px rgba(255, 0, 127, 0.7);
+            padding-top: 220px;
+        }
 
         .modal-content {
-            background-color: pink;
-            margin: 15% auto;
+            background-color: rgb(255, 204, 214);
+            box-shadow: 0 6px 12px rgba(255, 65, 160, 0.7);
+            margin: 5% auto;
             padding: 20px;
-            border: 1px solid rgba(255, 105, 180, 0.7);
-            width: 50%;
+            border: 1px solid rgba(136, 136, 136, 0);
+            width: 80%;
+            max-width: 400px;
             border-radius: 10px;
         }
 
-        .modal-content input[type="text"] {
-            width: 95%;
-            padding: 8px;
-            margin-bottom: 10px;
-            border-radius: 5px;
+        .close {
+            color: rgba(255, 0, 128, 0.5);
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
         }
 
+        .close:hover,
+        .close:focus {
+            color: rgba(255, 0, 128, 0.7);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Modify the Anime Name and Image URL input fields */
+        .modal input {
+            padding: 6px;
+            margin: 6px 0;
+            width: 80%; /* Make them smaller */
+            border-radius: 5px;
+            font-size: 14px; /* Adjust font size to match the smaller input */
+        }
+
+        /* Red background for Anime Name and Image URL input fields */
+        #newAnimeName, #newAnimeImage {
+            background-color: rgb(255, 255, 255);
+            color: rgb(255, 2, 128);
+            border: 2px solid rgba(255, 0, 128, 0.48);
+            box-shadow: 0 6px 12px rgba(254, 73, 164, 0.38);
+        }
+
+        /* Add Anime button styles inside modal */
         .modal-content button {
-            background-color: hotpink;
-            color: #ffffff;
-            padding: 10px 15px;
+            padding: 10px;
+            background-color: rgba(255, 148, 167, 0.63); /* Set the background color to pink */
+            color: white;
+            border-radius: 5px;
+            font-family: 'Press Start 2P', cursive;
             border: none;
             cursor: pointer;
-            border-radius: 5px;
             font-size: 16px;
-            width: 100%;
+            box-shadow: 0 6px 12px rgba(254, 73, 164, 0.73);
         }
 
         .modal-content button:hover {
-            background-color: rgba(255, 0, 128, 0.5);
+            background-color: rgba(239, 41, 140, 0.7); /* Light pink on hover */
+            box-shadow: 0 6px 12px rgba(254, 73, 164, 0.73);
         }
-        /* Style for the custom "Choose a file" button */
-.file-upload-button {
-    background-color: rgba(255, 105, 180, 0.7); /* Pink button */
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    display: inline-block;
-    text-align: center;
-    margin-top: 10px;
-    font-family: 'Press Start 2P', cursive;
-    text-shadow: 2px 2px 5px rgba(255, 105, 180, 0.7);
-    border: none; /* Remove default border */
-}
-
-/* Hover effect for the file button */
-.file-upload-button:hover {
-    background-color: rgba(255, 0, 128, 0.5); /* Darker pink on hover */
-}
-
-input[type="file"] {
-    display: none; /* Hide the default file input button */
-}
-
-/* Modal styles */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed;
-    z-index: 2; /* Make sure the modal is on top of the checklist box */
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%); /* Center the modal */
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.23); /* Black with opacity */
-}
-
-/* Center modal content */
-.modal-content {
-    background-color: pink;
-    padding: 20px;
-    border: 1px solid rgba(255, 105, 180, 0.7);
-    width: 50%; /* You can adjust the width as needed */
-    max-width: 600px; /* Optional: set a maximum width */
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center content horizontally */
-    justify-content: center; /* Center content vertically */
-}
-
-/* Optional: Style for the modal button */
-button {
-    background-color: rgba(255, 105, 180, 0.7); /* Pink button */
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    display: inline-block;
-    text-align: center;
-    margin-top: 10px;
-    font-family: 'Press Start 2P', cursive;
-    text-shadow: 2px 2px 5px rgba(255, 105, 180, 0.7);
-}
-
-/* Make sure the image preview is also centered */
-#imagePreview {
-    text-align: center;
-}
-
-#previewImg {
-    max-width: 200px;
-    display: none;
-}
-
     </style>
 </head>
 <body>
-    <div class="content" id="mainBox">
-        
-<audio id="backgroundMusic" src="bgmusic.mp3" loop></audio>
-        <h1>Anime List</h1>
-        <button onclick="openChecklist()">Open</button>
-    </div>
-    <audio id="clickSound" src="mouse-click-153941.mp3"></audio>
+    <!-- Background music -->
+    <audio id="backgroundMusic" loop autoplay>
+        <source src="bgmusic.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
 
+    <!-- Mouse click sound -->
+    <audio id="clickSound">
+        <source src="mouse-click-153941.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Login Form -->
+    <div class="login-box" id="loginBox">
+        <h1>Login</h1>
+        <input type="text" id="username" placeholder="Username" onfocus="playClickSound()">
+        <input type="password" id="password" placeholder="Password" onfocus="playClickSound()">
+        <button onclick="login()" onmouseover="playClickSound()">Login</button>
+    </div>
+
+    <!-- Checklist (Hidden initially) -->
     <div class="checklist-box" id="checklistBox">
         <h1>Anime Checklist</h1>
-        <input type="text" id="searchBar" class="search-bar" onkeyup="searchChecklist()" placeholder="Search for an anime...">
-        <ul id="checklistItems">
-            <!-- Existing items here -->
-            <li>
-                <input type="checkbox" id="check1" onchange="toggleLabel(this)">
-                <img src="https://i.pinimg.com/474x/5f/43/42/5f43422a1898710ca997fc0dec20d795.jpg" alt="RoyaleAshe Icon">
-                <span id="label1">Ao Haru Ride</span>
-            </li>
-            <li>
-                <input type="checkbox" id="check2" onchange="toggleLabel(this)">
-                <img src="https://i.pinimg.com/474x/52/1b/ed/521bedd6525ae9e62d2f402bd28f65fe.jpg" alt="RoyaleAshe Icon">
-                <span id="label2">Wotakoi</span>
-            </li>
-        </ul>
-        <button class="add-button" onclick="openModal()">+ Add New Anime</button>
+        
+        <input type="text" class="search-bar" id="searchBar" placeholder="Search anime..." onfocus="playClickSound()">
+
+        <div class="checklist-items" id="animeList"></div>
+
+        <button onclick="showModal()" onmouseover="playClickSound()">+ Add Anime</button>
+        <button onclick="logout()" onmouseover="playClickSound()">Logout</button>
     </div>
 
-  <!-- Modal for adding new anime -->
-<div id="animeModal" class="modal">
-    <div class="modal-content">
-        <h2>Add New Anime</h2>
-        <input type="text" id="animeName" placeholder="Enter Anime Name">
-        
-        <!-- Custom file input button -->
-        <label for="animeImage" class="file-upload-button">Choose a file</label>
-        <input type="file" id="animeImage" accept="image/*" onchange="previewImage()" style="display: none;" />
-        
-        <div id="imagePreview" style="margin-top: 10px;">
-            <img id="previewImg" src="" alt="Image Preview" style="max-width: 200px; display: none;" />
-        </div>
-        
-        <button onclick="addNewAnime()">Submit</button>
-    </div>
-</div>
-    
-    <!-- Modal Structure with Close Button -->
-    <div id="animeModal" style="display: none;">
-        <div>
-            <label for="animeName">Anime Name:</label>
-            <input type="text" id="animeName" required><br>
-            <label for="animeImage">Anime Image:</label>
-            <input type="file" id="animeImage" required><br>
-            <button onclick="addNewAnime()">Add Anime</button>
-            <button class="close-btn" onclick="closeModalButton()">Close</button> <!-- Close button for the modal -->
+    <!-- Modal for Adding Anime -->
+    <div id="animeModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()" onmouseover="playClickSound()">&times;</span>
+            <h2>Add New Anime</h2>
+            <input type="text" id="newAnimeName" placeholder="Anime Name" onfocus="playClickSound()">
+            <input type="text" id="newAnimeImage" placeholder="Anime Image URL" onfocus="playClickSound()">
+            <button onclick="addAnime()" onmouseover="playClickSound()">Add Anime</button>
         </div>
     </div>
-
-
 
     <script>
-      // Load anime from localStorage and display it
-        document.addEventListener("DOMContentLoaded", function() {
-            let storedAnimes = JSON.parse(localStorage.getItem("animeList")) || [];
+        let isLoggedIn = false;
+        let animeList = [];
+        let currentUser = localStorage.getItem('currentUser');  // Check if user is already logged in
 
-            storedAnimes.forEach(anime => {
-                addAnimeToList(anime.name, anime.image);
-            });
-
-            let checkboxes = document.querySelectorAll("input[type='checkbox']");
-            checkboxes.forEach(checkbox => {
-                let storedValue = localStorage.getItem(checkbox.id);
-                if (storedValue === "true") {
-                    checkbox.checked = true;
-                    toggleLabel(checkbox);
-                }
-            });
-        });
-
-        function addNewAnime() {
-            const animeName = document.getElementById("animeName").value;
-            const animeImage = document.getElementById("animeImage").value;
-
-            if (animeName && animeImage) {
-                let storedAnimes = JSON.parse(localStorage.getItem("animeList")) || [];
-
-                // Check if anime already exists to avoid duplication
-                const animeExists = storedAnimes.some(anime => anime.name === animeName && anime.image === animeImage);
-                if (!animeExists) {
-                    addAnimeToList(animeName, animeImage);
-
-                    storedAnimes.push({ name: animeName, image: animeImage });
-                    localStorage.setItem("animeList", JSON.stringify(storedAnimes));
-                } else {
-                    alert("This anime is already in the list.");
-                }
-
-                closeModal();  // Close modal after adding the anime
-            }
+        // If there is a logged-in user, load their anime list
+        if (currentUser) {
+            isLoggedIn = true;
+            animeList = JSON.parse(localStorage.getItem(currentUser)) || [];
+            document.getElementById('loginBox').style.display = 'none';
+            document.getElementById('checklistBox').style.display = 'block';
+            updateAnimeList();
         }
 
-        function addAnimeToList(animeName, animeImage) {
-            const ul = document.getElementById("checklistItems");
-            const li = document.createElement("li");
-
-            const input = document.createElement("input");
-            input.type = "checkbox";
-            input.onchange = function() { toggleLabel(input) };
-
-            const img = document.createElement("img");
-            img.src = animeImage;
-            img.alt = "Anime Image";
-
-            const span = document.createElement("span");
-            span.textContent = animeName;
-
-            li.appendChild(input);
-            li.appendChild(img);
-            li.appendChild(span);
-            ul.appendChild(li);
-
-            if (input.checked) {
-                toggleLabel(input);
-            }
+        function playClickSound() {
+            const clickSound = document.getElementById('clickSound');
+            clickSound.play();
         }
 
-        function toggleLabel(checkbox) {
-            let label = checkbox.nextElementSibling.nextElementSibling;
-            if (checkbox.checked) {
-                label.classList.add("checked-label");
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username && password) {
+                currentUser = username;
+                isLoggedIn = true;
+                localStorage.setItem('currentUser', currentUser); // Save the logged-in user
+                animeList = JSON.parse(localStorage.getItem(currentUser)) || [];
+                document.getElementById('loginBox').style.display = 'none';
+                document.getElementById('checklistBox').style.display = 'block';
+                updateAnimeList();
             } else {
-                label.classList.remove("checked-label");
+                alert('Please enter both username and password!');
             }
-            localStorage.setItem(checkbox.id, checkbox.checked);
         }
 
-        function openModal() {
-            document.getElementById("animeModal").style.display = "block";
+        function logout() {
+            isLoggedIn = false;
+            animeList = [];
+            localStorage.removeItem('currentUser');
+            document.getElementById('loginBox').style.display = 'block';
+            document.getElementById('checklistBox').style.display = 'none';
         }
 
+        // Show Modal
+        function showModal() {
+            document.getElementById('animeModal').style.display = 'block';
+        }
+
+        // Close Modal
         function closeModal() {
-            document.getElementById("animeModal").style.display = "none";
+            document.getElementById('animeModal').style.display = 'none';
         }
 
-        function searchChecklist() {
-            let input = document.getElementById('searchBar');
-            let filter = input.value.toUpperCase();
-            let ul = document.getElementById("checklistItems");
-            let li = ul.getElementsByTagName("li");
+        // Add Anime
+        function addAnime() {
+            const name = document.getElementById('newAnimeName').value;
+            const imgUrl = document.getElementById('newAnimeImage').value;
 
-            for (let i = 0; i < li.length; i++) {
-                let span = li[i].getElementsByTagName("span")[0];
-                if (span.textContent.toUpperCase().indexOf(filter) > -1) {
-                    li[i].style.display = "";
-                } else {
-                    li[i].style.display = "none";
-                }
+            if (name && imgUrl) {
+                animeList.push({ name: name, imgUrl: imgUrl, checked: false });
+                updateLocalStorage();
+                updateAnimeList();
+                closeModal();
+            } else {
+                alert('Please fill in both fields!');
             }
         }
 
-        function addNewAnime() {
-    const animeName = document.getElementById("animeName").value;
-    const animeImageInput = document.getElementById("animeImage");
-    
-    // Check if a file is selected
-    if (animeImageInput.files && animeImageInput.files[0]) {
-        const file = animeImageInput.files[0];
-        
-        // Read the image file and convert to a base64 URL
-        const reader = new FileReader();
-        
-        reader.onload = function(e) {
-            const animeImage = e.target.result; // This is the base64 data URL of the image
-            
-            if (animeName && animeImage) {
-                let storedAnimes = JSON.parse(localStorage.getItem("animeList")) || [];
+        // Update Anime List
+        function updateAnimeList() {
+            const animeListContainer = document.getElementById('animeList');
+            animeListContainer.innerHTML = '';
 
-                // Check if anime already exists to avoid duplication
-                const animeExists = storedAnimes.some(anime => anime.name === animeName && anime.image === animeImage);
-                if (!animeExists) {
-                    addAnimeToList(animeName, animeImage);
+            animeList.forEach((anime, index) => {
+                const animeItem = document.createElement('div');
+                animeItem.classList.add('anime-item');
 
-                    storedAnimes.push({ name: animeName, image: animeImage });
-                    localStorage.setItem("animeList", JSON.stringify(storedAnimes));
-                } else {
-                    alert("This anime is already in the list.");
-                }
-
-                closeModal();  // Close modal after adding the anime
-            }
-        }
-        
-        reader.readAsDataURL(file); // Convert the image to base64
-    } else {
-        alert("Please choose an image.");
-    }
-}
-
-function previewImage() {
-    const fileInput = document.getElementById("animeImage");
-    const previewImg = document.getElementById("previewImg");
-    
-    // Check if there's a selected file
-    if (fileInput.files && fileInput.files[0]) {
-        const reader = new FileReader();
-        
-        reader.onload = function(e) {
-            previewImg.src = e.target.result; // Set the preview image source to the base64 data
-            previewImg.style.display = "block"; // Display the preview
-        }
-
-        reader.readAsDataURL(fileInput.files[0]); // Convert file to base64
-    }
-}
-
-        function openChecklist() {
-            document.getElementById("checklistBox").style.display = "block";
-            document.getElementById("mainBox").style.display = "none";
-        }
-        
-        
-  document.addEventListener("DOMContentLoaded", function () {
-            let audio = document.getElementById("backgroundMusic");
-
-            // Try to play automatically
-            let playPromise = audio.play();
-
-            if (playPromise !== undefined) {
-                playPromise.catch(() => {
-                    // If autoplay is blocked, wait for user interaction
-                    document.addEventListener("click", () => audio.play(), { once: true });
+                const animeCheckbox = document.createElement('input');
+                animeCheckbox.type = 'checkbox';
+                animeCheckbox.classList.add('anime-checkbox');
+                animeCheckbox.checked = anime.checked;
+                animeCheckbox.addEventListener('change', function() {
+                    anime.checked = this.checked;
+                    updateLocalStorage();
+                    const animeNameElement = this.nextElementSibling.nextElementSibling;
+                    if (this.checked) {
+                        animeNameElement.classList.add('checked');
+                    } else {
+                        animeNameElement.classList.remove('checked');
+                    }
                 });
-            }
-        });
-        
-        document.addEventListener("DOMContentLoaded", function () {
-    // Get the click sound audio element
-    const clickSound = document.getElementById("clickSound");
 
-    // Get all buttons, search bar, and checkboxes
-    const buttons = document.querySelectorAll('button');
-    const searchBar = document.getElementById('searchBar');
-    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+                const animeImage = document.createElement('img');
+                animeImage.classList.add('anime-image');
+                animeImage.src = anime.imgUrl;
 
-    // Add event listener to each button to play sound on click
-    buttons.forEach(button => {
-        button.addEventListener('click', function () {
-            clickSound.play(); // Play the click sound
-        });
-    });
+                const animeName = document.createElement('div');
+                animeName.classList.add('anime-name');
+                animeName.textContent = anime.name;
 
-    // Add event listener to search bar to play sound when clicked
-    searchBar.addEventListener('click', function () {
-        clickSound.play(); // Play the click sound
-    });
+                const deleteButton = document.createElement('button');
+                deleteButton.classList.add('delete-button');
+                deleteButton.innerHTML = 'X';
+                deleteButton.onclick = function() {
+                    removeAnime(index);
+                };
 
-    // Add event listener to checkboxes to play sound when checked/unchecked
-    checkboxes.forEach(checkbox => {
-        checkbox.addEventListener('change', function () {
-            clickSound.play(); // Play the click sound when the checkbox state changes
-        });
-    });
+                if (anime.checked) {
+                    animeName.classList.add('checked');
+                }
 
-    // Additional code to handle background music autoplay
-    let audio = document.getElementById("backgroundMusic");
+                animeItem.appendChild(animeCheckbox);
+                animeItem.appendChild(animeImage);
+                animeItem.appendChild(animeName);
+                animeItem.appendChild(deleteButton);
 
-    // Try to play automatically
-    let playPromise = audio.play();
+                animeListContainer.appendChild(animeItem);
+            });
+        }
 
-    if (playPromise !== undefined) {
-        playPromise.catch(() => {
-            // If autoplay is blocked, wait for user interaction
-            document.addEventListener("click", () => audio.play(), { once: true });
-        });
-    }
-});
+        function removeAnime(index) {
+            animeList.splice(index, 1);
+            updateLocalStorage();
+            updateAnimeList();
+        }
 
+        function updateLocalStorage() {
+            localStorage.setItem(currentUser, JSON.stringify(animeList));
+        }
     </script>
 </body>
 </html>
