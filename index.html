@@ -1,9 +1,9 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Royal High Badge Holders</title>
+    <title>Anime Checklist</title>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
         body {
@@ -245,7 +245,8 @@
             <span class="close" onclick="closeModal()" onmouseover="playClickSound()">&times;</span>
             <h2>Add New Anime</h2>
             <input type="text" id="newAnimeName" placeholder="Anime Name" onfocus="playClickSound()">
-            <input type="text" id="newAnimeImage" placeholder="Anime Image URL" onfocus="playClickSound()">
+            <input type="file" id="newAnimeImage" accept="image/*" onfocus="playClickSound()" onchange="previewImage()">
+            <img id="imagePreview" style="display: none; max-width: 100%; max-height: 200px; margin-top: 10px;">
             <button onclick="addAnime()" onmouseover="playClickSound()">Add Anime</button>
         </div>
     </div>
@@ -254,6 +255,7 @@
         let isLoggedIn = false;
         let animeList = [];
         let currentUser = localStorage.getItem('currentUser');
+        let selectedImage = null;
 
         if (currentUser) {
             isLoggedIn = true;
@@ -301,17 +303,34 @@
             document.getElementById('animeModal').style.display = 'none';
         }
 
+        function previewImage() {
+            const fileInput = document.getElementById('newAnimeImage');
+            const file = fileInput.files[0];
+            
+            if (file) {
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    selectedImage = e.target.result;
+                    const imagePreview = document.getElementById('imagePreview');
+                    imagePreview.src = selectedImage;
+                    imagePreview.style.display = 'block'; // Show the preview
+                };
+                
+                reader.readAsDataURL(file);
+            }
+        }
+
         function addAnime() {
             const name = document.getElementById('newAnimeName').value;
-            const imgUrl = document.getElementById('newAnimeImage').value;
 
-            if (name && imgUrl) {
-                animeList.push({ name: name, imgUrl: imgUrl, checked: false });
+            if (name && selectedImage) {
+                animeList.push({ name: name, imgUrl: selectedImage, checked: false });
                 updateLocalStorage();
                 updateAnimeList();
                 closeModal();
             } else {
-                alert('Please fill in both fields!');
+                alert('Please fill in both fields and select an image!');
             }
         }
 
@@ -368,11 +387,6 @@
             });
         }
 
-        document.getElementById('searchBar').addEventListener('input', function() {
-            const searchQuery = this.value.toLowerCase();
-            updateAnimeList(searchQuery);
-        });
-
         function removeAnime(index) {
             animeList.splice(index, 1);
             updateLocalStorage();
@@ -382,6 +396,10 @@
         function updateLocalStorage() {
             localStorage.setItem(currentUser, JSON.stringify(animeList));
         }
+
+        document.getElementById('searchBar').addEventListener('input', function() {
+            updateAnimeList(this.value);
+        });
     </script>
 </body>
 </html>
